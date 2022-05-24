@@ -5,6 +5,7 @@ import web.models.Car;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -18,8 +19,8 @@ public class CarDAO {
         cars.add(new Car(4, "NameCar4", "black"));
         cars.add(new Car(5, "NameCar5", "yellow"));
     }
-
-    public List<Car> showCars(int count) {
-         return cars.stream().toList();
+       public List<Car> showCars(int count) {
+        if((count == 0) || (count > 5)) {count = 5;}
+       return cars.stream().limit(count).collect(Collectors.toList());
     }
 }

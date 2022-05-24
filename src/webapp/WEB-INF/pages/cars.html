@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Cars</title>
 </head>
 <body>
 <h1>Cars</h1>
-
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Color</th>
+    </tr>
+<div th:each="car : ${cars}">
+        <tr>
+            <td th:text = "${car.getId()}"></td>
+            <td th:text = "${car.getName()}"></td>
+            <td th:text = "${car.getColor()}"></td>
+        </tr>
+</div>
+</table>
 </body>
 </html>
